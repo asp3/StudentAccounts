@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="form">
+    	<ul class="tab-group">
+        	<li class="tab active"><a href="/student/login/">Log In</a></li>
+        	<li class="tab"><a href="/student/signup/">Sign Up</a></li>
+		</ul>
+      
+        <div id="signup">   
+        	<h1>Sign Up for Free Today!</h1>
+          
+          	<form action="/student/signup/" method="post">
+          	{% csrf_token %}
+          		<div class="top-row">
+					<div class="field-wrap">
+						<label for="firstname">
+							First Name<span class="req">*</span>
+						</label>
+			  
+						<input id="firstname" type="text" name="firstname" value="{{ current_name }}" required autocomplete = "off">
+					</div>
+			
+					<div class="field-wrap">
+						<label>
+							Last Name<span class="req">*</span>
+						</label>
+						<input type="text" name="lastname"required autocomplete="off"/>
+					</div>
+				</div>
+
+				<div class="field-wrap">
+					<label>
+						Email Address<span class="req">*</span>
+					</label>
+					<input type="email" name="email"required autocomplete="off"/>
+				</div>
+		  
+				<div class="field-wrap">
+					<label>
+						Set a Password<span class="req">*</span>
+					</label>
+					<input type="password" name="pass1"required autocomplete="off"/>
+				</div>
+
+				<div class="field-wrap">
+					<label>
+						Confirm Password<span class="req">*</span>
+					</label>
+					<input type="password" name="pass2"required autocomplete="off"/>
+				</div>          
+
+				<div class="field-wrap">
+					<label>
+						Graduation Year<span class="req">*</span>
+					</label>
+					<input type="numbers" name="year"required autocomplete="off"/>
+				</div>
+
+				<div class="field-wrap">
+					<p style="color:white">Grade</p>
+					<select name="Grade" id="colour1" width="200px" style="color:white">
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+				</div>
+				
+				<button type="submit" class="button button-block"/>Get Started</button>
+          
+			</form>
+          	<h3>* = Required</h3>
+        </div>
+	</div>
+{% endblock %}

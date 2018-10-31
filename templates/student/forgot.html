@@ -1,0 +1,63 @@
+{% extends 'baseforgot.html' %}
+
+{% block content %}     
+<body>
+
+                  <div class="row">
+                  <div class="col s12 m4 center">
+                  <p> </p>
+                  </div>
+			        <div class="col s12 m4 center">
+			          <div class="card blue-grey darken-1">
+			            <div class="card-content white-text">
+			              <span class="card-title">Forgot Password/Pin?</span>
+							{% if messages %}
+				                <ul class="messages" style="color:red">
+				                    {% for message in messages %}
+				                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+				                        {{ message }}
+				                    </li>
+				                    {% endfor %}
+				                </ul>
+		                	{% endif %}
+			              <p>
+			              <form action="" method="POST">
+         					 {% csrf_token %}
+							<div class="field-wrap">
+								<label>
+									<font size="3">First Name</font><span class="req"></span>
+								</label>
+				                <input id="id_first_name" name="first_name" step="1" type="text" maxlength="25"/>
+							</div>
+							<div class="field-wrap">
+								<label>
+									<font size="3">Last Name</font><span class="req"></span>
+								</label>
+					            <input id="id_last_name" name="last_name" step="1" type="text" maxlength="25"/>
+							</div>
+							<div class="field-wrap">
+								<label>
+									<font size="3">Username</font><span class="req"></span>
+								</label>
+						        <input id="id_username" name="username" step="1" type="text" maxlength="25"/>
+							</div>
+							<div class="field-wrap">
+								<label>
+									<font size="3">Email</font><span class="req"></span>
+								</label>
+						        <input id="id_email" name="email" step="1" type="email"/>
+							</div>
+			              </p>
+			            </div>
+			            <div class="card-action">
+			              <button type="submit" class="center btn waves-effect waves-light"/>Get Started</button>
+			              </form>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+            
+
+</body>
+
+{% endblock %}

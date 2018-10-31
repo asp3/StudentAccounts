@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+      {% load staticfiles %}
+
+    {% block titlename %}
+      <title>Dashboard</title>
+    {% endblock %}
+  
+  
+    <!-- BEGIN META -->
+      <link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+        <meta name="description" content="Dashboard">
+    <meta name="keywords" content="faiz, malkani, android, ui, ux, frontend">
+    <meta name="copyright" content="Copyright © 2014 Faiz Malkani. All Rights Reserved.">
+    <meta name="author" content="Faiz Malkani">
+    <meta name="theme-color" content="#ffffff">
+    <meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" name="viewport">
+    <link rel="stylesheet" href="{% static "css/tidy.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link href="{% static "css/featherlight.min.css" %}" type="text/css" rel="stylesheet" title="Featherlight Styles" />
+    <link rel="import" href="{% static "bower_components/paper-ripple/paper-ripple.html" %}">
+    <link rel="import" href="{% static "bower_components/paper-fab/paper-fab.html" %}">
+    <link rel="import" href="{% static "bower_components/iron-icons/iron-icons.html" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% block extra_styles %}
+
+    {% endblock %}
+
+  </head>
+
+    <body>
+    {% block content %}
+
+    {% endblock %}
+      
+      
+      
+      
+      
+    <!-- ===================================================================================================== -->
+            
+    <!-- JAVASCRIPT -->
+    <script src="/static/js/jquerydash.min.js"></script>
+    <script src="/static/js/TweenMax.min.js"></script>
+    <script src="/static/js/ScrollToPlugin.min.js"></script>
+    <script src="/static/bower_components/webcomponentsjs/webcomponents.js"></script>
+        <script src="/static/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- Animations -->
+    <script src="/static/js/wow.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    
+    <!-- Scrollwheel Smoothing -->
+    <script>
+      $(function()
+      { 
+        var $window = $(window);
+        var scrollTime = 0.2;
+        var scrollDistance = 270;
+        $window.on("mousewheel DOMMouseScroll", function(event)
+        {
+  
+          event.preventDefault(); 
+          var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+          var scrollTop = $window.scrollTop();
+          var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+          TweenMax.to($window, scrollTime, 
+          {
+            scrollTo : { y: finalScroll, autoKill:true }, ease: Power1.easeOut, overwrite: 5   
+            
+          });
+        });
+      });
+    </script>
+</html>

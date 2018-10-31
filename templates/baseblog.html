@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load staticfiles %}
+
+		{% block titlename %}
+			<title>Blog and Reviews</title>
+		{% endblock %}
+    <link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "blog/css/materialize.min.css" %}" media="screen,projection" />
+    <link rel="stylesheet" href="{% static "blog/css/main.css" %}">
+    <link rel="canonical" href="http://adhias.com/blog/">
+	</head>
+
+
+	<body>
+		{% block content %}
+
+		{% endblock %}
+
+
+    <script type="text/javascript" src="/static/blog/js/jquery.min.js"></script>
+    <script src="/static/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/static/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/static/blog/js/velocity.min.js"></script>
+    <script src="/static/blog/js/skrollr.min.js"></script>
+    <script src="/static/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/static/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/static/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/static/blog/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
+
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-60711072-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+</html>

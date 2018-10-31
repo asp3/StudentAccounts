@@ -1,0 +1,67 @@
+{% extends 'basecancel.html' %}
+
+{% block content %}
+  <div class="form">
+<div class="row">
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a href = "/" class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="left" data-tooltip="Home">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+    <div id="register" class="col s12">
+        <div class="tab-content:after active">
+      <div id="signup"> 
+        <h4 class="center">Need to Cancel?</h4>
+        {% if messages %}
+        <ul class="messages" style="color:red">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/student/dashboard/cancel/" method="post">
+        {% csrf_token %}
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                <font size="3">First Name</font><span class="req"></span>
+              </label>
+              {{ form.first_name }}
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                <font size="3">Last Name</font><span class="req"></span>
+              </label>
+              {{ form.last_name }}
+            </div>
+          </div>
+          <div class="field-wrap">
+            <label>
+              <font size="3">4-Digit Pin</font><span class="req"></span>
+            </label>
+            {{ form.pin }}
+          </div>
+          <div class="field-wrap">
+            <label>
+              <font size="3">Event</font><span class="req"></span>
+            </label>
+            {{ form.event }}
+          </div>
+
+          <button type="submit" class="button button-block waves-effect waves-light"/>Cancel Order</button>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

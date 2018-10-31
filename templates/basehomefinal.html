@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load staticfiles %}
+
+		{% block titlename %}
+			<title>Home | Student Accounts</title>
+		{% endblock %}
+
+ 	<link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Student Accounts for All">
+    <meta name="author" content="StudentAccounts |">
+    
+    <link href="{% static "css/bootstraphome.min.css" %}" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{% static "fonts/font-awesome.min.css" %}" type="text/css" media="screen">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="{% static "css/material.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/ripples.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/responsive.css" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  		{% block extra_styles %}
+
+		{% endblock %}
+
+	</head>
+
+
+	<body>
+		{% block content %}
+
+		{% endblock %}  
+    <script src="/static/js/arrive.min.js"></script>
+	<script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/bootstraphome.min.js"></script>
+    <script src="/static/js/ripples.min.js"></script>
+    <script src="/static/js/material.min.js"></script>
+    <script src="/static/js/wow.js"></script>
+    <script src="/static/js/jquery.mmenu.min.all.js"></script> 
+    <script src="/static/js/count-to.js"></script>   
+    <script src="/static/js/jquery.inview.min.js"></script>     
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/jquery.nav.js"></script>      
+    <script src="/static/js/smooth-on-scroll.js"></script>
+    <script src="/static/js/smooth-scroll.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/static/js/hilitor.js"></script>
+    <script src="/static/js/jquery.nicescroll.js"></script>
+    <script>
+        $(document).ready(function($) {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
+
+</html>

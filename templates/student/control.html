@@ -1,0 +1,286 @@
+{% extends 'basecontrol.html' %}
+
+{% block content %}
+
+<body>
+<!--
+<div class="navbar">
+    <nav id="nav_f" class="blue darken-3" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <p id="logo-container" class="brand-logo">Control</p>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.username}}</a></li>
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.first_name}}</a></li>
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.email}}</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.username}}</a></li>
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.first_name}}</a></li>
+                    <li><a href="#!" class="waves-effect waves-dark">{{request.user.email}}</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+-->
+<section id="body">
+
+	<div class="container">
+
+		<!-- MAIN MENU -->
+		<div class="main-menu" id="main-menu">
+			<ul class="main-menu-list">
+				<li><a href="#page-pay" class="link-home">QuickPay</a></li>
+				<li><a href="#page-pay" class="link-page">Info</a></li>
+				<li><a href="#page-skills" class="link-page">Add</a></li>
+				<li><a href="#page-contact" class="link-page">Add Event</a></li>
+				<li><a href="#page-display" class="link-page">Display</a></li>
+			</ul>
+		</div>
+		<!-- /MAIN MENU -->
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="left" data-tooltip="Pages">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+		<!-- SECTION: vCard Body  -->
+		<div class="section-vcardbody section-home" id="section-home">
+
+	            <h2 class="section-title center" style="color:white">Paying Made Easy</h2>
+	            <!-- /Section title -->
+	            <form action="/student/checkout/" method="post">
+				{% csrf_token %}
+						<div class="field-wrap">
+							{{ form.pin.errors }}
+							<label>
+								<font size="3" style="color:grey">4-Digit Pin</font><span class="req"></span>
+							</label>
+							{{ form.pay.pin }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Amount</font><span class="req"></span>
+							</label>
+							{{ form.pay.quantity }}
+						</div>
+						{{pay.errors}}
+					<button type="submit" class="btn button-block waves-effect waves-light"/>Pay!</button>
+			  		{% if messages %}
+					<ul class="messages" style="color:white">
+					    {% for message in messages %}
+					    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+					        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<font size="4" color="orange">{% endif %}
+					        <br>{{ message }}</font>
+					    </li>
+					    {% endfor %}
+					</ul>
+					{% endif %}
+				</form> 
+		</div>
+		<!-- /SECTION: vCard Body  -->	
+
+		<!-- PAGE: RESUME -->
+		<div class="section-vcardbody section-page" style="background: url(../a.png)" id="page-pay">
+
+			<!-- Profile pic-->
+			<div class="vcard-profile-pic">
+				<img src="/static/img/profile.png" id="profile2"  alt=""/>
+				<img src="/static/img/profile.png" id="profile1" class="profileActive" alt=""/>
+			</div>
+			<!-- /Profile pic -->
+			<!-- Description -->
+			<div class="vcard-profile-description">
+				<!-- Profile title -->
+				<h1 class="profile-title">Welcome <span class="color1">{{user.first_name}}!</span></h1>
+				<h2 class="profile-subtitle">MCA Student</h2>
+				<!-- /Profile Title -->
+				<!-- Description Text -->
+				<hr class="hr1">
+				<div class="vcard-profile-description-text">
+					<p>Enter in your 4-digit pin code and the amount you wish to pay in order to have a safe and secure transaction</p>
+				</div>	
+				<!--/ Description Text -->	
+				<!-- Description feature -->
+				<div class="vcard-profile-description-feature">
+					<!-- item -->
+					<div class="vcard-profile-description-ft-item">
+						<p>Questions?<br>Email: abhi12.p@gmail.com<br>kunaladhia01@gmail.com</p>
+					</div>
+					<!-- item -->
+				</div>	
+				<!-- /Description feature -->		
+			</div>
+			<!-- /Description -->	
+		</div>
+		<!-- /PAGE: RESUME  -->	
+
+		<!-- SECTION: SKILLS-->
+		<div class="section-vcardbody section-page" style="background: url(/static/img/add.jpg)" id="page-skills">
+			<h2 class="section-title center" style="color:white">Add to Account</h2>
+	            <!-- /Section title -->
+	            <form action="/student/checkout/" method="post">
+				{% csrf_token %}
+						<div class="field-wrap">
+							{{ form.pin.errors }}
+							<label>
+								<font size="3" style="color:grey">4-Digit Pin</font><span class="req"></span>
+							</label>
+							{{ form.add.pinadd }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Amount to Add</font><span class="req"></span>
+							</label>
+							{{ form.add.total_to_add }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Password</font><span class="req"></span>
+							</label>
+							{{ form.add.password }}
+						</div>
+						{{form.add.errors}}
+					<button type="submit" class="btn button-block waves-effect waves-light"/>Add!</button>
+				</form> 
+			<div class="section-skills">
+				<ul class="skills-list">
+                    <!-- item-list -->
+                    <li>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" data-percent="70%" style="width: 70%;">
+                            <span class="sr-only">70% Complete</span>
+                        </div>
+                        <span class="progress-type">Comunication</span>
+                        <span class="progress-completed">70%</span>
+                      </div>
+                    </li>
+                    <!-- /item list -->
+                    <!-- item-list -->
+                    <li>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-2" role="progressbar" data-percent="85%" style="width: 85%;">
+                            <span class="sr-only">85% Complete</span>
+                        </div>
+                        <span class="progress-type">Leadership</span>
+                        <span class="progress-completed">85%</span>
+                      </div>
+                    </li>
+                    <!-- /item list -->
+                    <!-- item-list -->
+                    <li>
+                      <div class="progress" title="Doing my best!">
+                        <div class="progress-bar progress-bar-3" role="progressbar" data-percent="85%" style="width: 85%;">
+                            <span class="sr-only">85% Complete</span>
+                        </div>
+                        <span class="progress-type">Confidence</span>
+                        <span class="progress-completed">85%</span>
+                      </div>
+                    </li>
+                    <!-- /item list -->
+                </ul>
+				<!-- /Skils List -->
+				</div>
+		</div>
+		<!-- /SECTION: SKILLS  -->	
+
+		<!-- SECTION: BLOG SINGLE-->
+		<div class="section-vcardbody section-page" style="background: url(/static/img/addevent.png)" id="page-contact">
+			<h2 class="section-title center" style="color:white">Add Event</h2>
+	            <!-- /Section title -->
+	            <form action="/student/checkout/" method="post">
+				{% csrf_token %}
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Name</font><span class="req"></span>
+							</label>
+							{{ form.addevent.name }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Date</font><span class="req"></span>
+							</label>
+							{{ form.addevent.event_date }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Cost</font><span class="req"></span>
+							</label>
+							{{ form.addevent.cost }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Description</font><span class="req"></span>
+							</label>
+							{{ form.addevent.description }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Pin (Confirmation)</font><span class="req"></span>
+							</label>
+							{{ form.addevent.pin }}
+						</div>
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Does this Lunch have Pre-Order? (Y/N)</font><span class="req"></span>
+							</label>
+							{{ form.addevent.regular_lunch }}
+						</div>
+						{{form.addevent.errors}}
+					<button type="submit" class="btn button-block waves-effect waves-light"/>Add!</button>
+				</form> 	
+		</div>
+		<!-- /SECTION: BLOG SINGLE  -->
+
+		<!-- SECTION: CONTACT-->
+		<div class="section-vcardbody section-page"  style="background: url(/static/img/display.jpg" id="page-display">
+			<h2 class="section-title center" style="color:white">Display</h2>
+			<h6 class="center" style="color:white">Payments for your class</h6>
+	            <!-- /Section title -->
+	            <form action="/student/checkout/" method="post">
+				{% csrf_token %}
+						<div class="field-wrap">
+							<label>
+								<font size="3" style="color:grey">Date (YYYY-MM-DD)</font><span class="req"></span>
+							</label>
+							{{ form.display.date }}
+						</div>
+						{{form.display.errors}}
+					<button type="submit" class="btn button-block waves-effect waves-light"/>Add!</button>
+				</form> 	
+	</div>
+
+</section>
+<!-- /Main Content
+================================================== -->
+
+<!-- Contact Form - Ajax Messages
+========================================================= -->
+<!-- Form Sucess -->
+<div class="form-result modal-wrap" id="contactSuccess">
+  <div class="modal-bg"></div>
+  <div class="modal-content">
+    <h4 class="modal-title"><i class="fa fa-check-circle"></i> Success!</h4>
+    <p>Your message has been sent to us.</p>
+  </div>
+</div>
+<!-- /Form Sucess -->
+<!-- form-error -->
+<div class="form-result modal-wrap" id="contactError">
+  <div class="modal-bg"></div>
+  <div class="modal-content">
+    <h4 class="modal-title"><i class="fa fa-times"></i> Error</h4>
+    <p>There was an error sending your message.</p>
+  </div>
+</div>
+
+</body>
+	{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'basecontrol.html' %}
+
+{% block content %}
+
+<body>
+<!-- Page Loader
+========================================================= -->
+
+<!-- /End of Page loader
+========================================================= -->
+
+<!-- Main Content
+================================================== -->
+<section id="body">
+
+	<div class="container">
+	<h2 class="center" style="color:black">Previous Orders</h2>
+		<!-- /MAIN MENU -->
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="left" data-tooltip="Pages">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+		<!-- SECTION: vCard Body  -->
+		<div class="section-home"  id="section-home">
+				    <div class="wow fadeInUp content-card" style="margin-top: 0;"> 
+				        
+				        <table class="highlight hoverable striped bordered centered">
+				            <thead>
+				              <tr>
+				              	  <th data-field="class_of">First Name</th>
+				                  <th data-field="class_of">Last Name</th>
+				                  <th data-field="id">Price</th>
+				                  <th data-field="name">Date</th>
+				                  <th data-field="price">Name</th>
+				                  <th data-field="quantity">Quantity</th>
+				                  <th data-field="class_of">Class Of</th>
+				              </tr>
+				            </thead>
+
+				            <tbody>
+						{% for payment in output.b.latest_event_list %}
+				              <tr>
+				              	<td>{{payment.first_name}}</td>
+				                <td>{{payment.last_name}}</td>
+				                <td>${{payment}}</td>
+				                <td>{{payment.payment_date}}</td>
+				                <td>{{payment.event}}</td>
+				                <td>{{payment.quantity}}</td>
+				                <td>{{payment.class_of}}</td>
+				              </tr>
+						{% endfor %}				        
+				            </tbody>
+				        </table>
+				        <h3 class="center">Total for {{output.date}}: ${{output.c}}</h3>
+					</div> 	
+		</div>
+</section>
+</body>
+	{% endblock %}

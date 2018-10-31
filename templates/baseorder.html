@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		{% load staticfiles %}
+
+		{% block titlename %}
+			<title>Order</title>
+		{% endblock %}
+ 	<link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#2196F3">
+    <link href="{% static "min/plugin-min.css" %}" type="text/css" rel="stylesheet">
+    <link href="{% static "min/custom-min.css" %}" type="text/css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		{% block extra_styles %}
+
+		{% endblock %}
+
+	</head>
+
+	<body>
+		{% block content %}
+
+		{% endblock %}
+		
+    <script src="/static/min/plugin-min.js"></script>
+    <script src="/static/min/custom-min.js"></script>
+
+	</body>
+</html>
+
+
+
+

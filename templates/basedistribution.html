@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load staticfiles %}
+
+		{% block titlename %}
+			<title>Distribution</title>
+		{% endblock %}
+    <style>
+    html { 
+  background: url(/static/img/background4.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+      <link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+<link href="{%static "admin/css/bootstrap.min.css" %}" rel="stylesheet">
+<link href= 'https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Nivo Lightbox -->
+<link href="{%static "admin/css/nivo-lightbox.css" %}" rel="stylesheet">
+<link rel="stylesheet" href="{%static "admin/css/default.css" %}" type="text/css" />
+  <!-- /Nivo Lightbox -->
+  <!-- Perfect ScrollBar -->
+<link href="{%static "admin/css/perfect-scrollbar.min.css" %}" rel="stylesheet">
+<!-- owl carousel -->
+<link href="{%static "admin/css/owl.carousel.css" %}" rel="stylesheet">
+<link href="{%static "admin/css/owl.theme.css" %}" rel="stylesheet">
+<!-- Main Styles -->
+
+<link href="{%static "admin/css/styles.css" %}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		{% block extra_styles %}
+
+		{% endblock %}
+
+	</head>
+
+	<body>
+		{% block content %}
+
+		{% endblock %}
+
+<script src="/static/admin/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/static/admin/js/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/validate.js"></script>
+<!-- Holder JS -->
+<script src="/static/admin/js/holder.js"></script>
+<!-- Modal box-->
+<script src="/static/admin/js/nivo-lightbox.min.js"></script>
+<!-- /Modal Box -->
+<!-- Perfect ScrolBar -->
+<script src="/static/admin/js/perfect-scrollbar.jquery.min.js"></script>
+<!-- /Perfect ScrolBar -->
+<!-- Owl Caroulsel -->
+<script src="/static/admin/js/owl.carousel.js"></script>
+<!-- Google Maps -->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- Cross-browser -->
+<script src="/static/admin/js/cross-browser.js"></script>
+<!-- Main Scripts -->
+<script src="/static/admin/js/main.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68192027-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+	</body>
+</html>
+
+
+
+

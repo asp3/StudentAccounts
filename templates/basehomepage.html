@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		{% load staticfiles %}
+
+		{% block titlename %}
+			<title>Student Accounts</title>
+		{% endblock %}
+    <link rel="shortcut icon" href="{% static "img/profile.ico" %}" />
+    <meta charset="UTF-8">
+    <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "css/freelancer.css" %}">
+
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" type="text/css" href="{% static "fontawesome/css/fontawesome.min.css" %}">
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic'>
+
+		{% block extra_styles %}
+
+		{% endblock %}
+
+	</head>
+
+	<body>
+		{% block content %}
+
+		{% endblock %}
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+	</body>
+    <script src="/static/js/freelancer.js"></script>
+</html>
+
+
+
+

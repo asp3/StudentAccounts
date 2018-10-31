@@ -1,0 +1,26 @@
+{% extends 'baseerror.html' %}
+
+{% block content %}
+<body>
+	<meta http-equiv="refresh" content="5; url="http://www.adhias.com/student/order" />
+	<div class="wrap">
+		<div class="content">
+			<div class="logo">
+				<h1><a href="#"><img src="../../static/images/thank.jpg"></a></h1>
+				<span><img src="../../static/images/signal.png"/>Oops! This Username or Email has already been Taken.<br>Please Try Again.</span>
+			</div>
+			<div class="buttom">
+				<div class="seach_bar">
+					<p>Click to go back to the <span><a href="/student/order/">Order Form</a></span></p>
+					<div class="search_box">
+					<form>
+					   <input type="text" value="            You will be redirected in 5 seconds">
+				    </form>
+					 </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'basedistribution.html' %}
+
+{% block content %}
+
+<body>
+<!-- Page Loader
+========================================================= -->
+
+<!-- /End of Page loader
+========================================================= -->
+
+<!-- Main Content
+================================================== -->
+<section id="body">
+
+	<div class="container">
+	<h2 class="center" style="color:white">Distribution</h2>
+		<!-- /MAIN MENU -->
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="left" data-tooltip="Pages">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+		<!-- SECTION: vCard Body  -->
+		<div class="section-home"  id="section-home"  style="background: url(/static/img/pixels.jpg)">
+				    <div class="wow fadeInUp content-card" style="margin-top: 0;"> 
+				        
+				        <table class="highlight hoverable striped bordered centered">
+				            <thead>
+				              <tr>
+				                          {% if messages %}
+					<ul class="messages" style="color:white">
+					    {% for message in messages %}
+					    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+					        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<font size="4" color="orange">{{message}}</font>{% endif %}
+					    </li>
+					    {% endfor %}
+					</ul>
+			{% endif %}
+				              	  <th data-field="class_of" style="color:green">Pending Money</th>
+				              </tr>
+				            </thead>
+
+				            <tbody>
+				              <tr>
+				              	<td>${{output.normal}}</td>
+				              </tr>			        
+				            </tbody>
+				        </table>
+				        <table class="highlight hoverable striped bordered centered">
+				            <thead>
+				              <tr>
+				              	  <th data-field="class_of" style="color:white">Total in School Box</th>
+				              </tr>
+				            </thead>
+
+				            <tbody>
+				              <tr>
+				              	<td>${{output.total}}</td>
+				              </tr>			        
+				            </tbody>
+				        </table>
+					</div> 
+			
+			<form action="/student/distribution/" method="post">
+          {% csrf_token %}
+          	            <h2 class="section-title center" style="color:white"><br>Take Out</h2>
+          	            {% if messages %}
+					<ul class="messages" style="color:white">
+					    {% for message in messages %}
+					    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+					        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}<font size="4">{{message}}</font>{% endif %}
+					    </li>
+					    {% endfor %}
+					</ul>
+			{% endif %}
+          	            <div class="field-wrap">
+              <label>
+                <font size="3" color="white">Amount to Take<br></font><span class="req"></span>
+              </label>
+             	{{output.form.amount}}
+            </div>
+            <div class="field-wrap">
+              <label>
+                <font size="3" color="white">Password<br></font><span class="req"></span>
+              </label>
+             	{{output.form.password}}
+            </div>
+          <button type="submit" class="btn btn-large grey waves-effect waves-dark" style="color:black" onclick="Materialize.toast('You have successfully taken out your money!', 4000, 'rounded')" />Take Out!</button>
+          </form> 	
+		</div>
+</section>
+</body>
+	{% endblock %}

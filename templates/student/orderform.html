@@ -1,0 +1,164 @@
+{% extends 'baseorder.html' %}
+
+{% block content %}
+
+<body id="top" class="scrollspy">
+
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a href = "/" class="btn-floating btn-large waves-effect waves-light red tooltipped hoverable" data-position="left" data-tooltip="Home">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2 hoverable" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2 hoverable" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2 hoverable" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2 hoverable" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="#" id="logo-container" class="brand-logo">Order</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#ordercheck">Order</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#ordercheck">Order</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--Hero-->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="text_h center header cd-headline letters type">
+            <span>Upcoming Specials<br></span> 
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible">You can't miss these!</b>
+            {% for event in output.latest_event_list %}
+                <b >{{event.name}}</b>
+            {% endfor %}
+            </span>
+        </h1>
+    </div>
+</div>
+
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h2 class="center header text_h2"> Now introducing a<span class="span_h2"> new  </span>and <span class="span_h2"> improved </span> Academy experience. </h2>
+            </div>
+
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-account-balance waves-effect"></i>
+                    <h5 class="promo-caption">Dances</h5>
+                    <p class="light center">Tickets Halloween Dance, Snowball, and Semiformal, as well as the Prom (exclusive to upperclassmen) can all be purchased right here - efficiently and effectively.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-editor-attach-money waves-effect"></i>
+                    <h5 class="promo-caption">Lunches</h5>
+                    <p class="light center">The entire Academy Lunch experience is going to be revolutionized. Preorder your tickets before a lunch. Lunch organizers- you’re going to be able to access the preorders easily and effectively, so you don’t have to do as much work during the actual lunch. </p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="mdi-action-credit-card waves-effect"></i>
+                    <h5 class="promo-caption">Other Events</h5>
+                    <p class="light center"> Student Accounts don’t limit the events to just dances! Preorder your tickets now for other Academy events as well, including the Talent Show and Friday Night Live! 
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Work-->
+<div class="section scrollspy" id="ordercheck">
+    <div class="container">
+        <h2 class="header text_b center">Want to Order?</h2>
+                      <div class="row">
+            {% for event in output.latest_event_list %}
+                <div class="col s4">
+                  <div class="card blue-grey darken-1 hoverable">
+                    <div class="card-content white-text">
+                      <span class="card-title">{{event.name}}</span>
+                      <p>To Learn more and Order, click the link below.</p>
+                    </div>
+                    <div class="card-action center">
+                      <a href="/student/order/{{ event.id }}/">Order</a>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/img/parallax1.png"></div>
+</div>
+
+<!--Footer-->
+<footer id="contact" class="page-footer default_color scrollspy">
+    <div class="container">  
+        <div class="row">
+            <div>
+                <form class="col s12" action="static/contact/contact.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                            <label for="icon_prefix" class="white-text">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input id="icon_email" name="email" type="email" class="validate white-text">
+                            <label for="icon_email" class="white-text">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"  length="300"></textarea>
+                            <label for="icon_prefix2" class="white-text">Message</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="container">
+            Made by <a class="white-text" href="http://joashpereira.com">Student Accounts</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+        </div>
+    </div>
+</footer>
+
+    </body>
+{% endblock %}

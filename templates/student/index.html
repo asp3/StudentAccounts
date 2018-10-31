@@ -1,0 +1,575 @@
+{% extends 'basehomefinal.html' %}
+
+{% block content %}
+
+  <body>
+
+<div id="all">
+    <div class="navbar navbar-invers menu-wrap">
+      <div class="navbar-header text-center">
+        <a class="navbar-brand logo-right waves-effect" href="javascript:void(0)"><i class="mdi-image-timelapse"></i></a>
+      </div>
+        <ul class="nav navbar-nav main-navigation">
+          <li class="active waves-effect"><a href="#home">Home</a></li>
+          <li><a href="#pages" class="waves-effect">Pages</a></li>
+          <li><a href="#features" class="waves-effect">Features</a></li>
+          <li><a href="#main-features" class="waves-effect">Previews</a></li>
+          <li><a href="#aboutus" class="waves-effect">About Us</a></li>
+          <li><a href="#testimonial" class="waves-effect">User Reviews</a></li>
+          <li><a href="#clients" class="waves-effect">Contact</a></li>
+          <li>
+            <form onsubmit="return false;">
+                    <div class="input-field">
+                      <input id="search" type="search">
+                      <label for="search"><i class="material-icons">search</i></label>
+                    </div>
+            </form>
+          </li>
+          <li>
+            {% if user.is_authenticated %}                                        
+              <a href="student/logout"> {{ user.username }} Logout</a>
+             {% endif %}
+          </li>
+        </ul>
+        <button class="close-button" id="close-button">Close Menu</button>
+    </div>
+  	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="left" data-tooltip="Pages">
+        <i class="large material-icons">polymer</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating waves-effect waves-light grey tooltipped z-depth-2" data-position="left" data-tooltip="Logout" href="/student/logout"><i class="material-icons">power_settings_new</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light red tooltipped z-depth-2" data-position="left" data-tooltip="Login" href="/student/login"><i class="material-icons">vpn_key</i></i></a></li>
+        <li><a class="btn-floating waves-effect waves-light purple tooltipped z-depth-2" data-position="left" data-tooltip="Order" href="/student/order"><i class="material-icons">shop</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light green tooltipped z-depth-2" data-position="left" data-tooltip="Dashboard" href="/student/dashboard"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating waves-effect waves-light blue tooltipped z-depth-2" data-position="left" data-tooltip="Register" href="/student/signup"><i class="material-icons">perm_identity</i></a></li>
+      </ul>
+    </div>
+  	<div class="content-wrap">
+     <header class="hero-area" id="home">
+      
+      <div class="container">
+          <div class="col-md-12">
+            <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="200">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="logo-left waves-effect waves-dark" href="#home"><i class="mdi-image-timelapse"></i>SAC</a>
+                </div>
+                <div class="navbar-right"> 
+                  <button class="menu-icon" id="open-button">
+                    <i class="mdi-navigation-menu"></i>
+                  </button>             
+                </div>
+              </div>
+            </div>
+        </div>       
+        <div class="contents text-left" id="home">
+          <h1 class="" data-wow-duration="1000ms" data-wow-delay="300ms">Student Accounts</h1>
+          <p class="" data-wow-duration="1000ms" data-wow-delay="400ms">Engineers - Inovators - Students</p>
+          <a href="#pages" class="btn btn-lg btn-primary waves-effect waves-light" data-wow-duration="1000ms" data-wow-delay="400ms">Our Pages</a>
+          <a href="#features" class="btn btn-lg btn-border waves-effect waves-light z-depth-1" data-wow-duration="1000ms" data-wow-delay="500ms">Learn More</a>
+        </div>   
+    </header>
+
+    <section id="pages" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title" data-wow-duration="1000ms" data-wow-delay="100ms">Pages</h1>
+          <h2 class="section-subtitle wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">What you Want and Where to Find it</h2>
+        </div>
+        <div class="row">
+        <div class="col-md-4 col-sm-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo waves-effect waves-light">
+            <div class="card-content white-text">
+              <span class="card-title">Dashboard</span>
+              <p>This is where all of your information will be stored. Your credentials will be located here, and your balance and all of your purchase history. From here, you can also change your password, or cancel previous orders you have placed.</p>
+            </div>
+            <div class="card-action">
+              <a href="/student/dashboard/" class="btn white waves-effect waves-dark">Dashboard</a>
+            </div>
+          </div>
+        </div>
+          
+        <div class="col-md-4 col-sm-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo waves-effect waves-light">
+            <div class="card-content white-text">
+              <span class="card-title">Register</span>
+              <p>Don’t have an account? You can register for our service here, and conveniently pre-order from the comfort of your own home.</p>
+            </div>
+            <div class="card-action">
+              <a href="/student/signup/" class="btn white waves-effect waves-dark">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo waves-effect waves-dark">
+            <div class="card-content white-text">
+              <span class="card-title">Order</span>
+              <p>Look at all of the offerings that we have posted so far! This includes many of the events during the year, including dances and lunches hosted by classes.</p>
+            </div>
+           <div class="card-action">
+              <a href="/student/order/" class="btn white waves-effect waves-dark">Order</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col s12 m4" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo lighten-1 waves-effect waves-light">
+            <div class="card-content white-text">
+              <span class="card-title">Login</span>
+              <p>Click here to access the login page, where you sign into your account. From there, you can access the truly extraordinary features this website has to offer!</p>
+            </div>
+            <div class="card-action">
+              <a href="/student/login/" class="btn white waves-effect waves-dark">Login</a>
+            </div>
+          </div>
+        </div>
+
+
+<div class="col s12 m4" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo lighten-1 waves-effect waves-dark">
+            <div class="card-content white-text">
+              <span class="card-title">Features</span>
+              <p>Click on this button to view the great features that Student Accounts has to offer! You’ll have a chance to see some of the unique aspects that this website has to offer.</p>
+            </div>
+            <div class="card-action">
+              <a href="#features" class="btn white waves-effect waves-dark">Features</a>
+            </div>
+          </div>
+        </div>
+<div class="col s12 m4" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="card small indigo lighten-1 waves-effect waves-dark">
+            <div class="card-content white-text">
+              <span class="card-title">Credits</span>
+              <p>Thanks to all the beta testers, who caught the mistakes we made and gave us constructive feedback to make our site the best it can be.</p>
+            </div>
+            <div class="card-action">
+              <a href="/student/credits" class="btn white waves-effect waves-dark">Credits</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        
+        <div class="row">     
+
+          <div class="col-md-6 col-sm-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <img src="static/img/features/img1.png" alt="">
+          </div>
+
+          <div class="col-md-6 col-sm-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="pull-left content">
+              <h2>This is Why You'll <br> Love Student Accounts</h2>
+              <p>
+                Ease of access and efficiency - both provided when you use Student Accounts. Buy lunches and tickets to events ahead of time. Maintain the money you owe and your past transactions. This incredible new software is here to revolutionize the Academy experience.
+              </p>
+              <ul class="list-item">
+                <li><i class="mdi-action-done"></i>Easy Access</li>
+                <li><i class="mdi-action-done"></i>User-Friendly Material design</li>
+                <li><i class="mdi-action-done"></i>Free to Use</li>
+                <li><i class="mdi-action-done"></i>Stress-Free Management</li>
+                <li><i class="mdi-action-done"></i>Simple Transactions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="main-features" class="section main-feature-gray">
+      <div class="container">
+
+        <div class="row">   
+          <div class="col-md-8 col-sm-8" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="feature-item">
+              <h3 class="title-small">
+                Maintain your personal transactions
+              </h3>
+              <p>
+                Ever forget how much money you owe? Get lost in a pile of IOU’s? Well, Student Accounts has just the thing. Student Accounts maintains an online bookkeeping service that can be easily accessed with a click of a button. Now, you can easily view past transactions and review what still isn’t paid. With this feature, Student Accounts provides an efficient alternative to the current inefficient system that Academy students have to go through.
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-4" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <img src="static/img/features/fet1.png" class="img-responsive" alt="">
+          </div>  
+
+        </div>
+
+      </div>
+    </section>
+
+     <section id="main-features" class="section">
+      <div class="container">
+
+
+        <div class="row">   
+          <div class="col-md-4 col-sm-4" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <img src="static/img/features/2.gif" class="img-responsive" alt="">
+          </div>    
+
+          <div class="col-md-8 col-sm-8" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="feature-item">
+              <h3 class="title-small">
+                Buy Lunches!
+              </h3>
+              <p>
+                Academy Lunches are sure to change with Student Accounts. Organizers have a tiresome experience while managing lunches (such as calculating expenses and taking orders for these lunches). We at Student Accounts felt that this just isn’t efficient at all. We’ve developed this software so lunches (excluding weekly pizza sales) can be preordered ahead of time. Organizers can calculate how much food needs to be brought and profit/expenses with ease. For a school that values efficiency, we simply cannot continue the system we have today. 
+
+              </p>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+     <section id="main-features" class="section main-feature-gray">
+      <div class="container">
+
+        <div class="row">   
+          <div class="col-md-8 col-sm-8" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="feature-item">
+              <h3 class="title-small">
+                But... how does this all work?
+              </h3>
+              <p>
+                Simply deposit a sum of money into your account (give this money to one of your class council members, who will manage it). From there, you are able to purchase tickets to lunches and events online. The real-life transactions will be done by the council members themselves, so you don’t have to worry about a thing. For payment, you don’t have to do a thing! Simply remember your pin. Payment doesn't need to be given on the spot, but <i>all</i> IOUs <b>must</b> be paid off by the end of the month.
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-4" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <img src="static/img/features/fet.png" class="img-responsive" alt="">
+          </div>  
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="container">
+        <div class="row text-center">         
+            <h3 class="title-small" data-wow-duration="1000ms" data-wow-delay="300ms">Don't Forget to Register!</h3>
+             <a href="/student/signup" class="btn btn-lg btn-border waves-effect waves-light">Sign Up</a>
+          </div>
+      </div>
+    </section>
+
+    <section id="aboutus">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title" data-wow-duration="1000ms" data-wow-delay="300ms"><br>About Us</h1>
+          <h2 class="section-subtitle" data-wow-duration="1000ms" data-wow-delay="400ms">Get to know the people behind this</h2>
+        </div> 
+        <div class="row">
+          <div class="col-md-6 col-sm-6" data-wow-duration="1000ms" data-wow-delay="500ms">
+            <div class="features-content">
+              <img src="static/img/abhi.jpg" alt="">
+              <h3>Abhishek Patel</h3>
+              <p> Main Front End Developer. Leads the front-end developing at the team. He’s been the one-stop shop for our designing needs. He’s designed the first version of our site and continues to design for the product effectively and efficaciously. He also helped Kunal finish a few parts of the database.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6" data-wow-duration="1000ms" data-wow-delay="700ms">
+            <div class="features-content">
+              <img src="static/img/kunal.jpg" alt="">
+              <h3>Kunal Adhia</h3>
+              <p>Main backend developer. Kunal helped develop the Django framework which we have used to make and deploy our web application. He used a Linux Ubuntu server to make the first iteration of the site and he’s been developing on his personal server since the project began.</p>
+            </div>
+          </div>
+<!--
+          <div class="col-md-3 col-sm-6" data-wow-duration="1000ms" data-wow-delay="900ms">
+            <div class="features-content">
+              <img src="static/img/shree.jpg" alt="">
+              <h3>Shree Nadkarni</h3>
+              <p>Research and Development, Manager. Forming the impetus of the team’s project, Shree is a senior at the Academy and has seen too many profits go to waste because of a badly managed system. That’s why he’s looking forward to the implementation of this new system, helped out by the sophomores of the Academy.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6" data-wow-duration="1000ms" data-wow-delay="1100ms">
+            <div class="features-content">
+              <img src="static/img/abhih.jpg" alt="">
+              <h3>Abhi Harihiran</h3>
+              <p>Writer, First Beta-Tester. Wrote the text that contributed to the overall aesthetics of the website. Also helped in the beta testing of this website to ensure that everything was bug-free.</p>
+            </div>
+          </div>
+-->
+        </div>
+      </div>
+    </section>
+    <section id="testimonial" class="section">
+      <div class="container">
+        <div class="section-header text-center" data-wow-duration="1000ms" data-wow-delay="400ms">
+          <h1 class="section-title">What People Say</h1>
+          <h2 class="section-subtitle">Something Else</h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2" data-wow-duration="1000ms" data-wow-delay="400ms">
+            <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="1"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="2"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="3"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="item active text-center">               
+                  <div class="card small blue-grey darken-1 waves-effect">
+                        <div class="card-content white-text">
+                          <span class="card-title">David Klusinkskskski</span>
+                          <h5 style="color:white">Simply Stunning.</h5>
+                        </div>
+                        <div class="card-action">
+                          <h6>CS Club President</h6>
+                        </div>
+                  </div>
+                </div>
+                <div class="item text-center">                
+                  <div class="card small blue-grey darken-1 waves-effect">
+                        <div class="card-content white-text">
+                          <span class="card-title">Jay Rao</span>
+                          <h5 style="color:white">Best product I've seen in a long time.</h5>
+                        </div>
+                        <div class="card-action">
+                          <h6>Legendary God</h6>
+                        </div>
+                  </div>
+                </div>
+                <div class="item text-center">                
+                  <div class="card small blue-grey darken-1 waves-effect">
+                        <div class="card-content white-text">
+                          <span class="card-title">Enzo Paterno</span>
+                          <h5 style="color:white">There's a fine line between brilliance and genius, and I think they've crossed it.</h5>
+                        </div>
+                        <div class="card-action">
+                          <h6>ECET Professor</h6>
+                        </div>
+                  </div>                  
+                </div>
+                <div class="item text-center">                
+                  <div class="card small blue-grey darken-1 waves-effect">
+                        <div class="card-content white-text">
+                          <span class="card-title">Rohan Mehra</span>
+                          <h5 style="color:white">Accomplished so much for people so little.</h5>
+                        </div>
+                        <div class="card-action">
+                          <h6>Student</h6>
+                        </div>
+                  </div>                  
+                </div>
+                <div class="item text-center">                
+                  <div class="card small blue-grey darken-1 waves-effect">
+                        <div class="card-content white-text">
+                          <span class="card-title">Kamakshi Sharma</span>
+                          <h5 style="color:white">Wow, this actually worked. This website has a brighter future than I do.</h5>
+                        </div>
+                        <div class="card-action">
+                          <h6>12-Year Old</h6>
+                        </div>
+                  </div>                  
+                </div>                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="counter" class="section">
+      <div class="container">
+        <div class="row">
+                    <div class="col-md-8 col-sm-8" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="feature-item">
+              <h3 class="title-small">
+                Buy your tickets to exclusive Academy events!
+              </h3>
+              <p>
+                Along with lunches, the entire concept of Academy Events are going to change. Students can now buy tickets online with ease and pay off their money at a later date. Organizers do not need to focus on bookkeeping as much and can focus on the event itself (as Student Accounts takes care of it all). You can now buy your tickets to all the Academy’s dances and its special events such as the Talent Show and Friday Night Live! 
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-4" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <img src="static/img/features/fet2.png" class="img-responsive" alt="">
+          </div>  
+        </div>
+      </div>
+    </section>
+
+
+    <section id="clients" class="section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <h1 class="section-title" data-wow-duration="1000ms" data-wow-delay="300ms">Services We Used</h1>
+          <h2 class="section-subtitle" data-wow-duration="1000ms" data-wow-delay="600ms">All this was possible thanks to:</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-3" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="client-item-wrapper">
+              <img src="static/img/clients/stackoverflow.png" height="72" width="140" alt="">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3" data-wow-duration="1000ms" data-wow-delay="500ms">
+            <div class="client-item-wrapper">
+              <img src="static/img/clients/bitbucket.png" height="72" width="140" alt="">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3" data-wow-duration="1000ms" data-wow-delay="700ms">
+            <div class="client-item-wrapper">
+              <img src="static/img/clients/django.png" height="72" width="140" alt="">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3" data-wow-duration="1000ms" data-wow-delay="900ms">
+            <div class="client-item-wrapper">
+              <img src="static/img/clients/materialize.gif" height="72" width="140" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <font color="cccccc"><h2 class="section-title">That's Where We Are</h2></font>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="info">
+                  <div class="icon">
+                    <i class="mdi-maps-map"></i>
+                  </div>
+                  <h4>Location</h4>
+                  <p>100 Technology Dr<br>Edison, NJ, 08837</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="info">
+                  <div class="icon">
+                    <i class="mdi-content-mail"></i>
+                  </div>
+                  <h4>Emails</h4>
+                  <p>abhi12.p@gmail.com<br>kunaladhia01@gmail.com</p>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <div class="col-md-6 col-sm-6">
+                <div class="info">
+                  <div class="icon">
+                    <i class="mdi-action-settings-phone"></i>
+                  </div>
+                  <h4>Hosted By:</h4>
+                  <p>Amazon EC2</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="info">
+                  <div class="icon">
+                    <i class="mdi-action-thumb-up"></i>
+                  </div>
+                  <h4>Social Media</h4>
+                  <p>@MCAStudentAccounts</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <font color="cccccc"><h2 class="section-title">We'd Love to Hear From You</h2></font>
+            <!-- Form -->
+            <form class="contact-form" role="form" method="post">
+            {% csrf_token %}
+              <i class="mdi-action-account-box"></i>
+              {{form.name}}
+            
+              <i class="mdi-content-mail"></i>
+              {{form.email}}
+              <font color="e5e5e5"><p>Drop a Review!</p> </font>                 
+                  <p class="range-field">
+                    <input type="range" id="rate" min="0" max="100" />
+                  </p>                      
+              {{form.message}}
+              <button type="submit" id="submit" class="btn btn-lg btn-primary" onclick="Materialize.toast('Your Message was Successfully Sent!', 4000, 'rounded')">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>    
+
+    <section id="footer">
+      <div class="container">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <h3>Pages</h3>
+              <ul>
+                <li><a href="/student/register">Register</a>
+                </li>
+                <li><a href="/student/login">Login</a>
+                </li>
+                <li><a href="/student/dashboard">Dashbaord</a>
+                </li>
+                <li><a href="/student/order">Order</a>
+                </li>
+                <li><a href="/admin/login">Admin</a>
+                </li>               
+              </ul>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <h3>Find us on</h3>
+              <a class="social" href="https://www.facebook.com/MCAStudentAccounts" target="_blank"><i class="fa fa-facebook"></i></a>
+              <a class="social" href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a class="social" href="http://www.plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+              <a class="social" href="http://www.mcvts.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>  
+      </div>      
+      <!-- Go to Top Link -->
+      <a href="#home" class="btn-primary back-to-top">
+      <i class="circle material-icons">navigation</i>
+      </a>
+    </section> 
+
+    <section id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="copyright-text">
+             ©2015 All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>     
+    </div>  
+</div>
+    <script type="text/javascript">
+
+  var myHilitor2;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    myHilitor2 = new Hilitor("all");
+    myHilitor2.setMatchType("left");
+  }, false);
+
+  document.getElementById("search").addEventListener("keyup", function() {
+    myHilitor2.apply(this.value);
+  }, false);
+
+</script>		
+  </body>
+{% endblock %}

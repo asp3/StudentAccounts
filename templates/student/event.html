@@ -1,0 +1,90 @@
+{% extends 'baseevent.html' %}
+
+{% block content %}
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a class="brand-logo waves-effect waves-dark" href="/student/order/">Back</a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }} center" style="color:red" {% endif %}>
+                      <font size="5">{{ message }}<br></font>
+                  </li>
+        {% endfor %}
+      <br>
+      <h1 class="header center orange-text">{{event.name}}</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">{{event.event_date}}<br>Class of {{event.class_of}}
+        {% if event.regular_lunch %}
+        <br>Available for Pre-Order
+        {% endif %}
+        </h5>
+
+      </div>
+      <div class="row center">
+        <a href="#a" id="download-button" class="btn-large waves-effect waves-light orange">Order Now</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container section scrollspy">
+    <div class="section scrollspy">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s16 m6">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h4 class="center">Information</h4>
+
+            <h5 class="light justify">{{event.description}}</h5>
+          </div>
+        </div>
+
+        <div class="col s16 m6">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h4 class="center">Cost</h4>
+
+            <h5 class="light center">This amazing event will only take <b>${{event.cost}}</b> out of your pocket.</h5>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer blue section scrollspy" id="a">
+    <div class="container">
+      <div class="row center">
+      <form action="/student/order/{{event.id}}/" method="post">
+          {% csrf_token %}
+            <div class="field-wrap">
+              <label>
+                <font size="3" color="white">4-Digit Pin (Confirmation)<br></font><span class="req"></span>
+              </label>
+              <input id="id_pin" name="pin" step="1" type="number" max="9999" style="width: 60px"/>
+            </div>
+          <button type="submit" class="btn btn-large orange waves-effect waves-dark" style="color:black" onclick="Materialize.toast('Your Order is Being Placed!', 8000, 'rounded')" />Purchase</button>
+          </form> 
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made with <a class="white-text text-lighten-10" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+
+{% endblock %}
